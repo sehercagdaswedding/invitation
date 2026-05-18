@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Düğün Davetiyesi - Seher & Çağdaş</title>
     
     <!-- SOSYAL MEDYA PAYLAŞIM ÖNİZLEMESİ (OPEN GRAPH) -->
@@ -31,6 +31,7 @@
         html, body {
             max-width: 100%;
             overflow-x: hidden;
+            overscroll-behavior-x: none;
         }
 
         body {
@@ -402,6 +403,7 @@
             position: relative; transform: translateY(30px); transition: transform 0.3s ease;
             box-shadow: 0 15px 50px rgba(184, 17, 101, 0.15);
             border: 1px solid #F0B3CE;
+            overscroll-behavior-y: contain;
         }
         .modal-overlay.active .modal-content { transform: translateY(0); }
         
@@ -520,8 +522,8 @@
             .detail-item p { font-size: 0.85rem; }
             .primary-btn, .secondary-btn { padding: 12px 20px; font-size: 0.85rem; }
             .floral-corner { width: 140px; height: 140px; }
-            .floral-top-left { top: -20px; left: -20px; }
-            .floral-bottom-right { bottom: -20px; right: -20px; }
+            .floral-top-left { top: -15px; left: -10px; }
+            .floral-bottom-right { bottom: -15px; right: -10px; }
             .countdown-number { font-size: 1.6rem; }
             .modal-content { padding: 25px 15px 30px 15px; }
             .music-btn { bottom: 35px; right: 15px; width: 40px; height: 40px; }
