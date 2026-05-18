@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Düğün Davetiyesi - Seher & Çağdaş</title>
+    
+    <!-- SOSYAL MEDYA PAYLAŞIM ÖNİZLEMESİ (OPEN GRAPH) -->
+    <meta property="og:title" content="Seher & Çağdaş - Evleniyoruz!">
+    <meta property="og:description" content="Bu özel ve mutlu günümüzde siz değerli sevdiklerimizi de aramızda görmekten onur duyarız. 19 Temmuz 2026">
+    <meta property="og:type" content="website">
+    
+    <!-- Önerilen Görsel Boyutu: 1200x630 piksel -->
+    <meta property="og:image" content="https://sitenizin-adresi.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- FONTLAR: Cormorant Garamond (Başlık), Montserrat (Metin), Great Vibes (İmza/İsimler) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        /* ZARİF KAYDIRMA ÇUBUĞU */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #FAFAFA; }
+        ::-webkit-scrollbar-thumb { background: #F0B3CE; border-radius: 5px; border: 2px solid #FAFAFA; }
+        ::-webkit-scrollbar-thumb:hover { background: #CF4B86; }
+
+        body {
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #FAFAFA; /* Temiz ve porselen beyazı */
+            color: #374151;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 40px 15px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 600px; /* Davetiye için biraz daha geniş */
+            background-color: rgba(255, 255, 255, 0.95); /* Görsel yüklenene kadar yedek renk */
+            background-image: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.96)), url('assets/bg3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(184, 17, 101, 0.08); 
+            position: relative; 
+            z-index: 10;
+            animation: fadeUp 1.2s ease-out forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* İSİMLER İÇİN GREAT VIBES */
+        h1.names-title {
+            font-family: 'Great Vibes', cursive; 
+            font-size: 4rem;
+            font-weight: 400;
+            color: #B81165; /* Macenta */
+            margin-bottom: 5px;
+            line-height: 1.1;
+            text-shadow: 0 2px 10px rgba(184, 17, 101, 0.1);
+        }
+        
+        h2.subtitle {
+            font-family: 'Cormorant Garamond', serif; 
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #CF4B86; /* Yaban mersini pembesi */
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .invitation-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #4B5563;
+            font-style: italic;
+        }
+
+        .elegant-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(184, 17, 101, 0.6), transparent);
+            margin: 25px auto; 
+            width: 80%;
+        }
+
+        /* DETAYLAR (TARİH, MEKAN) */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Yan yana */
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+        
+        .detail-card {
+            background: #FAFAFA; 
+            border: 1px solid #F0B3CE; 
+            border-radius: 15px;
+            padding: 20px 10px; 
+            cursor: pointer; 
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(184, 17, 101, 0.03);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .detail-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 20px rgba(184, 17, 101, 0.1); 
+            background: #FFF0F6;
+        }
+
+        .click-hint {
+            font-size: 0.75rem;
+            color: #CF4B86;
+            margin-top: 10px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .detail-item h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: #B81165;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .detail-item p {
+            font-size: 0.95rem;
+            color: #374151;
+            line-height: 1.5;
+        }
+
+        /* GERİ SAYIM SAYACI */
+        .countdown-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 1px dashed #F0B3CE;
+            border-bottom: 1px dashed #F0B3CE;
+        }
+        
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 60px;
+        }
+        
+        .countdown-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #B81165;
+            line-height: 1;
+        }
+        
+        .countdown-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #CF4B86;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        /* BUTON TASARIMLARI */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 500px) {
+            .action-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        .primary-btn, .secondary-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .primary-btn {
+            background-color: #F0B3CE; 
+            color: #B81165;
+            border: none;
+            box-shadow: 0 6px 20px rgba(240, 179, 206, 0.45);
+        }
+        
+        .primary-btn:hover {
+            background-color: #EBA1C1; 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 25px rgba(240, 179, 206, 0.6);
+        }
+
+        /* LCV Butonu için nabız efekti */
+        .action-buttons .primary-btn {
+            animation: softPulse 3s infinite;
+            will-change: box-shadow, transform;
+        }
+
+        .action-buttons .primary-btn:hover {
+            animation: none; /* Üzerine gelince animasyonu durdur */
+        }
+
+        .secondary-btn {
+            color: #B81165;
+            background-color: transparent;
+            border: 1.5px solid #F0B3CE;
+        }
+        
+        .secondary-btn:hover {
+            background-color: #FFF0F6;
+            transform: translateY(-2px);
+        }
+
+        .btn-icon { margin-right: 8px; }
+
+        /* LCV FORM VE LİSTE STİLLERİ */
+        .form-group { margin-bottom: 15px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 5px; font-size: 0.9rem; color: #B81165; font-weight: 500; }
+        .form-input {
+            width: 100%; padding: 12px 15px; border: 1px solid #F0B3CE; border-radius: 8px;
+            font-family: 'Montserrat', sans-serif; font-size: 0.95rem; outline: none; transition: border-color 0.3s;
+        }
+        .form-input:focus { border-color: #B81165; }
+        textarea.form-input { resize: vertical; min-height: 80px; }
+        
+        /* LCV +/- SAYAÇ STİLLERİ */
+        .counter-wrapper { display: flex; align-items: center; gap: 15px; margin-top: 5px; }
+        .counter-btn { background: #FFF0F6; border: 1px solid #F0B3CE; color: #B81165; width: 36px; height: 36px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+        .counter-btn:hover { background: #F0B3CE; color: #fff; }
+        .counter-value { font-size: 1.1rem; font-weight: 600; color: #374151; width: 30px; text-align: center; }
+        .hidden { display: none !important; }
+
+        /* LCV RADYO BUTONLARI (BUTON GÖRÜNÜMÜ) */
+        .radio-group { display: flex; gap: 10px; margin-top: 5px; }
+        .hidden-radio { position: absolute; opacity: 0; pointer-events: none; } /* Gizli ama form doğrulaması için aktif */
+        .radio-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 10px; border: 1px solid #F0B3CE; 
+            border-radius: 8px; color: #B81165; cursor: pointer; transition: all 0.3s;
+            font-size: 0.9rem; font-weight: 500; background: #FFF0F6;
+        }
+        label.radio-btn[for="statusYes"] { flex: 1; } /* 50% Genişlik */
+        label.radio-btn[for="statusNo"] { flex: 1; }  /* 50% Genişlik */
+
+        #statusYes:checked + .radio-btn {
+            background-color: #298A48; /* Dekoratif yapraklarla uyumlu yeşil */
+            border-color: #298A48;
+            color: #fff;
+        }
+        #statusNo:checked + .radio-btn {
+            background-color: #B81165; color: #fff; border-color: #B81165;
+        }
+
+        /* MÜZİK BUTONU */
+        .music-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 45px;
+            height: 45px;
+            background-color: #FFF0F6;
+            border: 1px solid #F0B3CE;
+            color: #B81165;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(184, 17, 101, 0.15);
+            transition: all 0.3s ease;
+        }
+        .music-btn:hover { background-color: #B81165; color: #fff; transform: scale(1.05); }
+        .music-btn.playing .music-icon { animation: spinMusic 3s linear infinite; }
+        @keyframes spinMusic { 100% { transform: rotate(360deg); } }
+
+        /* TOAST MESAJI (BİLDİRİM) */
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            display: flex;
+            flex-direction: column;
+            min-width: 290px;
+            text-align: center;
+            border-left: 5px solid transparent;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+        .toast-text { color: #374151; font-weight: 600; font-size: 0.95rem; margin-bottom: 12px; }
+        .toast-progress-bar { height: 4px; background: #f3f4f6; border-radius: 2px; width: 100%; overflow: hidden; }
+        .toast-progress { height: 100%; width: 100%; transform-origin: left; }
+        .toast.show .toast-progress { animation: progressShrink 3s linear forwards; }
+        @keyframes progressShrink {
+            from { transform: scaleX(1); }
+            to { transform: scaleX(0); }
+        }
+        
+        /* Kalp atışı / Nabız animasyonu */
+        @keyframes softPulse {
+            0%, 100% { box-shadow: 0 6px 20px rgba(240, 179, 206, 0.45); transform: scale(1); }
+            50% { box-shadow: 0 8px 30px rgba(240, 179, 206, 0.8), 0 0 15px rgba(240, 179, 206, 0.4); transform: scale(1.02); }
+        }
+
+        /* Toast Renk Temaları */
+        .toast.success { border-left-color: #298A48; }
+        .toast.success .toast-progress { background: #298A48; }
+        .toast.success .toast-progress-bar { background: #e0f2e9; }
+        
+        .toast.error { border-left-color: #B81165; }
+        .toast.error .toast-progress { background: #B81165; }
+        .toast.error .toast-progress-bar { background: #FFF0F6; }
+
+        /* MODAL YAPISI */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        
+        .modal-content {
+            background: #fff; border-radius: 20px; padding: 35px 25px;
+            width: 90%; max-width: 450px; max-height: 85vh; overflow-y: auto;
+            position: relative; transform: translateY(30px); transition: transform 0.3s ease;
+            box-shadow: 0 15px 50px rgba(184, 17, 101, 0.15);
+            border: 1px solid #F0B3CE;
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        
+        .modal-close {
+            position: absolute; top: 15px; right: 15px;
+            background: #FFF0F6; color: #B81165; border: none;
+            width: 35px; height: 35px; border-radius: 50%;
+            cursor: pointer; font-size: 1.2rem; font-weight: bold;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s;
+        }
+        .modal-close:hover { background: #B81165; color: #fff; }
+
+        /* MEKAN GÖRSELLERİ GALERİSİ */
+        .venue-gallery {
+            display: flex; gap: 10px; margin: 20px 0; overflow-x: auto; padding-bottom: 10px;
+        }
+        .venue-gallery img {
+            width: 160px; height: 120px; object-fit: cover;
+            border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+        .venue-gallery::-webkit-scrollbar { height: 6px; }
+        .venue-gallery::-webkit-scrollbar-thumb { background: #F0B3CE; border-radius: 3px; }
+
+        /* ALBÜM YÖNLENDİRMESİ */
+        .memory-card {
+            background-color: #FFF0F6;
+            border-radius: 15px;
+            padding: 25px 20px;
+            margin-top: 20px;
+            border: 1px solid #F0B3CE;
+            box-shadow: 0 4px 15px rgba(184, 17, 101, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .memory-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(184, 17, 101, 0.08);
+        }
+
+        /* EL ÇİZİMİ KALP ANİMASYONU */
+        .hand-drawn-heart {
+            width: 28px;
+            height: 28px;
+            transform: rotate(-10deg); /* Sevimli görünmesi için hafif eğik */
+        }
+        .hand-drawn-heart path {
+            fill: transparent;
+            stroke: #CF4B86;
+            stroke-width: 5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 250; /* Çizgi uzunluğu */
+            stroke-dashoffset: 250;
+            /* Sürekli çizilip silinme döngüsü */
+            animation: sketchHeart 3s ease-in-out infinite;
+            transform-origin: center;
+        }
+        @keyframes sketchHeart {
+            0% { stroke-dashoffset: 250; }
+            40% { stroke-dashoffset: 0; }     /* Çizim tamamlanır */
+            50% { stroke-dashoffset: 0; }     /* Kısa bir süre tam kalır */
+            90% { stroke-dashoffset: -250; }  /* Çizildiği yöne doğru silinir */
+            100% { stroke-dashoffset: -250; } /* Kısa bir süre boş kalıp tekrar başlar */
+        }
+
+        /* UÇUŞAN IŞIK/TOZ TANELERİ EFEKTİ */
+        .particles-container {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            overflow: hidden;
+            z-index: 1; 
+            pointer-events: none; 
+        }
+        .particle {
+            position: absolute;
+            background-color: #F0B3CE; 
+            border-radius: 50%;
+            animation: floatParticle linear infinite;
+        }
+        @keyframes floatParticle {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            20% { opacity: 0.4; }
+            80% { opacity: 0.4; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+
+        /* KÖŞELERDE ÇİÇEK ARANJMANLARI */
+        .floral-corner {
+            position: fixed;
+            z-index: 2;
+            width: 320px;
+            height: 320px;
+            pointer-events: none;
+        }
+        
+        @keyframes floralBreathe {
+            0%, 100% { transform: scale(1) rotate(var(--rot, 0deg)); }
+            50% { transform: scale(1.03) rotate(calc(var(--rot, 0deg) + 1.5deg)); }
+        }
+
+        .floral-top-left {
+            top: -60px; left: -60px;
+            --rot: 0deg;
+            animation: floralBreathe 8s ease-in-out infinite;
+        }
+        .floral-bottom-right {
+            bottom: -60px; right: -60px;
+            --rot: 180deg;
+            animation: floralBreathe 8s ease-in-out infinite reverse;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 40px 20px; }
+            h1.names-title { font-size: 3.2rem; }
+            h2.subtitle { font-size: 1.3rem; }
+            .floral-corner { width: 180px; height: 180px; }
+            .floral-top-left { top: -30px; left: -30px; }
+            .floral-bottom-right { bottom: -30px; right: -30px; }
+            .countdown-number { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- KÖŞE ÇİÇEK ARANJMANLARI -->
+    <svg class="floral-corner floral-top-left" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M40,90 C10,120 -10,180 40,180 C90,180 70,120 40,90 Z" fill="#298A48" opacity="0.9" transform="rotate(-20 40 90)"/>
+        <path d="M90,40 C80,0 130,-20 160,10 C190,40 150,60 90,40 Z" fill="#298A48" opacity="0.85" transform="rotate(20 90 40)"/>
+        <path d="M30,50 C0,30 10,-10 40,10 C70,30 50,70 30,50 Z" fill="#298A48" opacity="0.9" />
+        <path d="M120,110 C100,160 150,190 180,160 C210,130 170,90 120,110 Z" fill="#298A48" opacity="0.8" transform="rotate(-15 120 110)"/>
+        <circle cx="80" cy="80" r="50" fill="#CF4B86" opacity="0.95"/>
+        <path d="M80,30 C50,30 30,80 80,130 C130,80 110,30 80,30" fill="#B81165" opacity="0.4"/>
+        <circle cx="70" cy="90" r="35" fill="#e0659a" opacity="0.9"/>
+        <circle cx="90" cy="70" r="25" fill="#a1285f" opacity="0.8"/>
+        <circle cx="80" cy="80" r="15" fill="#f088b4" opacity="0.9"/>
+        <circle cx="140" cy="50" r="30" fill="#CF4B86" opacity="0.95"/>
+        <circle cx="135" cy="55" r="20" fill="#e0659a" opacity="0.9"/>
+        <circle cx="145" cy="45" r="15" fill="#a1285f" opacity="0.8"/>
+    </svg>
+
+    <svg class="floral-corner floral-bottom-right" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M40,90 C10,120 -10,180 40,180 C90,180 70,120 40,90 Z" fill="#298A48" opacity="0.9" transform="rotate(-20 40 90)"/>
+        <path d="M90,40 C80,0 130,-20 160,10 C190,40 150,60 90,40 Z" fill="#298A48" opacity="0.85" transform="rotate(20 90 40)"/>
+        <path d="M30,50 C0,30 10,-10 40,10 C70,30 50,70 30,50 Z" fill="#298A48" opacity="0.9" />
+        <path d="M120,110 C100,160 150,190 180,160 C210,130 170,90 120,110 Z" fill="#298A48" opacity="0.8" transform="rotate(-15 120 110)"/>
+        <circle cx="80" cy="80" r="50" fill="#CF4B86" opacity="0.95"/>
+        <path d="M80,30 C50,30 30,80 80,130 C130,80 110,30 80,30" fill="#B81165" opacity="0.4"/>
+        <circle cx="70" cy="90" r="35" fill="#e0659a" opacity="0.9"/>
+        <circle cx="90" cy="70" r="25" fill="#a1285f" opacity="0.8"/>
+        <circle cx="80" cy="80" r="15" fill="#f088b4" opacity="0.9"/>
+        <circle cx="140" cy="50" r="30" fill="#CF4B86" opacity="0.95"/>
+        <circle cx="135" cy="55" r="20" fill="#e0659a" opacity="0.9"/>
+        <circle cx="145" cy="45" r="15" fill="#a1285f" opacity="0.8"/>
+    </svg>
+
+    <div class="container">
+        
+        <h2 class="subtitle">
+            Evleniyoruz
+            <svg class="hand-drawn-heart" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- Tek hamlede çizilmiş, uçları kesişip taşan kalp çizgisi -->
+                <path d="M 50 25 C 25 0, 0 30, 50 85 C 100 30, 75 0, 40 30" />
+            </svg>
+        </h2>
+        <h1 class="names-title">Seher & Çağdaş</h1>
+        
+        <div class="elegant-divider"></div>
+        
+        <p class="invitation-text">
+            "Birlikte yeni bir hayata adım atarken, bu özel ve mutlu günümüzde siz değerli sevdiklerimizi de aramızda görmekten onur duyarız."
+        </p>
+
+        <div class="details-grid">
+            <!-- TARİH KARTI -->
+            <div class="detail-item detail-card" onclick="openModal('dateModal')">
+                <h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Tarih & Saat
+                </h3>
+                <p>19 Temmuz 2026</p>
+                <span class="click-hint">Sayaç & Takvime Ekle</span>
+            </div>
+            
+            <!-- MEKAN KARTI -->
+            <div class="detail-item detail-card" onclick="openModal('venueModal')">
+                <h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Mekan
+                </h3>
+                <p>Gömbe İlçe Meydanı</p>
+                <span class="click-hint">Konum Bilgisi & Yol Tarifi</span>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+                <!-- LCV Modal Butonu -->
+                <button onclick="openModal('lcvModal')" class="primary-btn" aria-label="LCV (RSVP)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"></path><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path><path d="m16 19 2 2 4-4"></path></svg>
+                    LCV (RSVP)
+                </button>
+                <span style="font-size: 0.85rem; color: #6B7280; margin-top: 25px; text-align: center; font-style: italic;">
+                    Katılım durumunuzu LCV (RSVP) ile bildirmeniz bizi çok mutlu eder.
+                </span>
+            </div>
+        </div>
+
+        <div class="elegant-divider"></div>
+
+        <div style="margin-top: 10px; text-align: center;">
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: #B81165; margin-bottom: 15px; font-style: italic;">
+                Düğünümüzde çektiğiniz en güzel kareleri ortak anı havuzumuzda toplayacağız.
+            </p>
+            <a href="https://cagdandroid-lgtm.github.io/wedding-album/index.html" target="_blank" class="secondary-btn" style="padding: 12px 25px; font-size: 0.9rem; width: auto; box-shadow: 0 4px 15px rgba(184, 17, 101, 0.05);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V12m0 0a4.5 4.5 0 1 0 4.5 4.5M12 12a4.5 4.5 0 1 1-4.5 4.5"></path></svg>
+                Anı Albümüne Git
+            </a>
+        </div>
+
+    </div>
+
+    <!-- TARİH VE SAYAÇ MODALI -->
+    <div class="modal-overlay" id="dateModal" onclick="closeModal(event, 'dateModal')">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal(event, 'dateModal', true)">&times;</button>
+            <h3 style="color: #B81165; font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                "Zaman.. Bir Geri Sayım"
+            </h3>
+            <p style="color: #4B5563; margin-bottom: 20px; font-weight: 500;">19 Temmuz 2026, Pazar <br> 19:00 - 23:30</p>
+            
+            <!-- GERİ SAYIM SAYACI -->
+            <div class="countdown-wrapper" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Gün</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Saat</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Dakika</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Saniye</span>
+                </div>
+            </div>
+
+            <!-- TAKVİME EKLE BUTONLARI -->
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
+                <!-- Google Takvim Linki -->
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Seher+%26+%C3%87a%C4%9Fda%C5%9F+D%C3%BC%C4%9F%C3%BCn&dates=20260719T160000Z/20260719T203000Z&details=D%C3%BC%C4%9F%C3%BCn%C3%BCm%C3%BCze+bekliyoruz!&location=G%C3%B6mbe+%C4%B0l%C3%A7e+Meydan%C4%B1" target="_blank" class="primary-btn" style="padding: 10px 15px; font-size: 0.85rem; box-shadow: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Google Takvim'e Ekle
+                </a>
+                <!-- Apple/Outlook için ICS İndirme Linki -->
+                <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ADTSTART:20260719T160000Z%0ADTEND:20260719T203000Z%0ASUMMARY:Seher%20%26%20%C3%87a%C4%9Fda%C5%9F%20D%C3%BC%C4%9F%C3%BCn%0ADESCRIPTION:D%C3%BC%C4%9F%C3%BCn%C3%BCm%C3%BCze%20bekliyoruz!%0ALOCATION:G%C3%B6mbe%20%C4%B0l%C3%A7e%20Meydan%C4%B1%0AEND:VEVENT%0AEND:VCALENDAR" download="seher_cagdas_dugun.ics" class="secondary-btn" style="padding: 10px 15px; font-size: 0.85rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Apple / Diğer Takvimlere Ekle
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEKAN VE YOL TARİFİ MODALI -->
+    <div class="modal-overlay" id="venueModal" onclick="closeModal(event, 'venueModal')">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal(event, 'venueModal', true)">&times;</button>
+            <h3 style="color: #B81165; font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Gömbe İlçe Meydanı
+            </h3>
+            <p style="color: #4B5563; font-size: 0.95rem;">Gömbe, Kaş/Antalya</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!4v1779097572657!6m8!1m7!1sGfTxu92eChBlQ_Jov4zoWQ!2m2!1d36.55065037612106!2d29.67036586053243!3f24.707636605584497!4f1.4706228850540413!5f0.7820865974627469" width="100%" height="250" style="border:0; border-radius: 12px; margin: 20px 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+                <a href="https://www.google.com/maps/search/?api=1&query=36.55097225284837, 29.670149793316718" target="_blank" class="primary-btn" aria-label="Google Maps" style="padding: 10px 15px; font-size: 0.85rem; box-shadow: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+                    Google Maps ile Yol Tarifi
+                </a>
+                <a href="https://maps.apple.com/?ll=36.55097225284837,29.670149793316718&q=Gömbe+İlçe+Meydanı" target="_blank" class="secondary-btn" aria-label="Apple Maps" style="padding: 10px 15px; font-size: 0.85rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+                    Apple Maps ile Yol Tarifi
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- LCV (KATILIM BİLDİRİMİ) MODALI -->
+    <div class="modal-overlay" id="lcvModal" onclick="closeModal(event, 'lcvModal')">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal(event, 'lcvModal', true)">&times;</button>
+            <h3 style="color: #B81165; font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 15px;">Lütfen Cevap Veriniz</h3>
+            
+            <form id="lcvForm" onsubmit="handleLCVSubmit(event)">
+                <div class="form-group">
+                    <label for="lcvName">Adınız Soyadınız</label>
+                    <input type="text" id="lcvName" name="isim" class="form-input" placeholder="Örn: Hayko Cepkin, Yalkın Ailesi" required>
+                </div>
+                <div class="form-group">
+                    <label>Katılım Durumunuz</label>
+                    <div class="radio-group">
+                        <input type="radio" id="statusYes" name="katilim" value="Katılıyorum" class="hidden-radio" required onchange="updateLcvFormVisibility()">
+                        <label for="statusYes" class="radio-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                            <span>Katılıyorum</span>
+                        </label>
+                        <input type="radio" id="statusNo" name="katilim" value="Katılamıyorum" class="hidden-radio" required onchange="updateLcvFormVisibility()">
+                        <label for="statusNo" class="radio-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 16s-1.5-2-4-2-4 2-4 2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                            <span>Katılamıyorum</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group hidden" id="countGroup">
+                    <label>Katılacak Kişi Sayısı</label>
+                    <div class="counter-wrapper">
+                        <button type="button" class="counter-btn" onclick="updateCount(-1)">-</button>
+                        <span class="counter-value" id="countDisplay">1</span>
+                        <input type="hidden" id="lcvCount" name="kisi" value="1">
+                        <button type="button" class="counter-btn" onclick="updateCount(1)">+</button>
+                    </div>
+                </div>
+                <div class="form-group hidden" id="noteGroup">
+                    <label for="lcvNote">Bize Notunuz</label>
+                    <textarea id="lcvNote" name="not" class="form-input" placeholder="Size yardımcı olmaktan mutluluk duyarız."></textarea>
+                </div>
+                <button type="submit" class="primary-btn" style="margin-top: 5px;">Gönder</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST MESAJI -->
+    <div id="toastMessage" class="toast">
+        <span id="toastText" class="toast-text"></span>
+        <div class="toast-progress-bar">
+            <div class="toast-progress"></div>
+        </div>
+    </div>
+
+    <!-- ARKA PLAN MÜZİĞİ VE BUTONU -->
+    <audio id="bg-music" loop>
+        <source src="assets/bgsound.mp3" type="audio/mpeg">
+    </audio>
+    
+    <button id="music-toggle" class="music-btn" aria-label="Müziği Aç/Kapat">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="music-icon"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+    </button>
+
+    <script>
+        // MODAL AÇMA/KAPAMA İŞLEMLERİ
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden'; // Arka plan kaydırmayı durdur
+        }
+        function closeModal(event, modalId, forceClose = false) {
+            // Tıklanan yer modal'ın dışıysa (overlay) veya çarpıya basıldıysa kapat
+            if (forceClose || event.target.id === modalId) {
+                document.getElementById(modalId).classList.remove('active');
+                document.body.style.overflow = ''; // Arka plan kaydırmayı geri aç
+            }
+        }
+
+        // KİŞİ SAYISI VE KATILIM DURUMU KONTROLLERİ
+        let lastStatus = '';
+        let toastTimeout;
+
+        function showToast(message, type) {
+            const toast = document.getElementById('toastMessage');
+            const toastText = document.getElementById('toastText');
+            
+            // Animasyonu sıfırlamak için class'ları temizle ve reflow tetikle
+            toast.classList.remove('show', 'success', 'error');
+            void toast.offsetWidth; 
+            
+            toastText.innerText = message;
+            toast.classList.add(type);
+            toast.classList.add('show');
+            
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000); // 3 saniye boyunca ekranda kalır
+        }
+
+        function updateLcvFormVisibility() {
+            const selectedRadio = document.querySelector('input[name="katilim"]:checked');
+            const status = selectedRadio ? selectedRadio.value : '';
+            const countGroup = document.getElementById('countGroup');
+            const noteGroup = document.getElementById('noteGroup');
+
+            // Seçim değiştiğinde uygun bildirimi göster
+            if (status !== lastStatus) {
+                if (status === 'Katılıyorum') {
+                    showToast("Bunu duyduğumuza gerçekten çok sevindik! 🎉", "success");
+                } else if (status === 'Katılamıyorum') {
+                    showToast("Aramızda olamayacağın için üzgünüz, kalplerimiz bir. 🤍", "error");
+                }
+                lastStatus = status;
+            }
+
+            // "Katılıyorum" seçilirse kişi sayısı alanını göster
+            if (status === 'Katılıyorum') {
+                countGroup.classList.remove('hidden');
+            } else {
+                countGroup.classList.add('hidden');
+            }
+
+            // Herhangi bir seçim yapıldıysa not alanını göster
+            if (status) {
+                noteGroup.classList.remove('hidden');
+            } else {
+                noteGroup.classList.add('hidden');
+            }
+        }
+
+        function updateCount(change) {
+            const input = document.getElementById('lcvCount');
+            const display = document.getElementById('countDisplay');
+            let val = parseInt(input.value) + change;
+            if (val < 1) val = 1; // En az 1 kişi olmalı
+            input.value = val;
+            display.innerText = val;
+        }
+
+        // LCV FORM İŞLEMLERİ VE LİSTELEME
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw0Ys87TNcF5j1tdmxtvGaDd6P-QjSzdR2z8Boqj64pGu5kj1VhxC35tTUAdLfmROlRFQ/exec'; // <--- BURAYA KENDİ LİNKİNİZİ YAPIŞTIRIN
+
+        function handleLCVSubmit(e) {
+            e.preventDefault();
+            
+            const form = document.getElementById('lcvForm');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerText;
+            
+            // Yükleniyor durumu
+            submitBtn.innerText = "Gönderiliyor...";
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+
+            // Google E-Tablo'ya veri gönder
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => {
+                    showToast("Katılım durumunuz başarıyla iletildi! Teşekkür ederiz. ✨", "success");
+                    form.reset();
+                    lastStatus = ''; // Toast algılayıcısını sıfırla
+                    document.getElementById('countGroup').classList.add('hidden'); // Sayacı tekrar gizle
+                    document.getElementById('noteGroup').classList.add('hidden'); // Not alanını tekrar gizle
+                    document.getElementById('countDisplay').innerText = "1"; // Sayacı 1'e sıfırla
+                    
+                    // Mesaj göründükten 1.5 saniye sonra LCV penceresini otomatik kapatır
+                    setTimeout(() => closeModal({target: {id: 'lcvModal'}}, 'lcvModal', true), 1500);
+                })
+                .catch(error => {
+                    console.error('Hata!', error.message);
+                    showToast("Bir hata oluştu. Lütfen tekrar deneyin.", "error");
+                })
+                .finally(() => {
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+        }
+
+        // UÇUŞAN IŞIK TANELERİ
+        function createParticles() {
+            const container = document.createElement('div');
+            container.className = 'particles-container';
+            document.body.appendChild(container);
+
+            for (let i = 0; i < 40; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.animationDuration = `${Math.random() * 15 + 10}s`; 
+                particle.style.animationDelay = `-${Math.random() * 20}s`; 
+                container.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // GERİ SAYIM SAYACI MANTIĞI
+        // Düğün Tarihi: 19 Temmuz 2026, 19:00:00
+        const countDownDate = new Date("Jul 19, 2026 19:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "<h3 style='color:#B81165; font-family:Cormorant Garamond;'>Büyük Gün Geldi!</h3>";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+        }, 1000);
+
+        // ARKA PLAN MÜZİĞİ MANTIĞI
+        const bgMusic = document.getElementById('bg-music');
+        const musicToggle = document.getElementById('music-toggle');
+        let isMusicPlaying = false;
+        
+        bgMusic.volume = 0.3; // %30 ses seviyesi (hafif arka plan)
+
+        // Sayfada ilk etkileşimde müziği otomatik başlat
+        const startMusic = () => {
+            if (!isMusicPlaying) {
+                bgMusic.play().then(() => {
+                    isMusicPlaying = true;
+                    musicToggle.classList.add('playing');
+                }).catch(e => console.log("Otomatik oynatma engellendi."));
+            }
+            document.removeEventListener('click', startMusic);
+            document.removeEventListener('touchstart', startMusic);
+        };
+        
+        document.addEventListener('click', startMusic);
+        document.addEventListener('touchstart', startMusic);
+
+        // Butona tıklandığında oynat/duraklat
+        musicToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Sayfa tıklamasını tetiklememesi için
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                musicToggle.classList.remove('playing');
+            } else {
+                bgMusic.play();
+                musicToggle.classList.add('playing');
+            }
+            isMusicPlaying = !isMusicPlaying;
+        });
+    </script>
+</body>
+</html>
