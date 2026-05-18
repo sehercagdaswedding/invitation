@@ -250,7 +250,7 @@
         .action-buttons .primary-btn {
             animation: softPulse 3s infinite;
             animation-iteration-count: 3;
-            will-change: box-shadow, transform;
+            touch-action: pan-y; /* Mobilde dikey kaydırmaya izin ver */
         }
 
         .action-buttons .primary-btn:hover {
@@ -263,6 +263,7 @@
             display: block;
             padding: 15px 0;
             pointer-events: auto;
+            touch-action: pan-y; /* Mobilde dikey kaydırmaya izin ver */
         }
 
         .secondary-btn {
@@ -912,7 +913,7 @@
         };
         
         document.addEventListener('click', startMusic);
-        document.addEventListener('touchstart', startMusic);
+        document.addEventListener('touchstart', startMusic, { passive: true }); // Kaydırmayı engellememesi için passive: true eklendi
 
         // Butona tıklandığında oynat/duraklat
         musicToggle.addEventListener('click', (e) => {
