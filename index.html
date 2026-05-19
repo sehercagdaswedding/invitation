@@ -31,7 +31,6 @@
         html, body {
             max-width: 100%;
             overflow-x: hidden;
-            overscroll-behavior-x: none;
         }
 
         body {
@@ -178,21 +177,22 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-width: 65px;
-            padding: 12px 5px;
-            background-color: #FFF0F6;
-            border: 1px solid #F0B3CE;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(184, 17, 101, 0.05);
+            min-width: 70px;
+            padding: 15px 5px;
+            background: linear-gradient(135deg, #ffffff 0%, #FFF0F6 100%);
+            border: 1px solid rgba(240, 179, 206, 0.8);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(184, 17, 101, 0.08), inset 0 2px 0px rgba(255, 255, 255, 1);
         }
         
         .countdown-number {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-weight: 600;
+            font-size: 2.8rem;
+            font-weight: 700;
             color: #B81165;
             line-height: 1;
             margin-bottom: 4px;
+            text-shadow: 1px 2px 5px rgba(184, 17, 101, 0.1);
         }
         
         .countdown-label {
@@ -247,22 +247,37 @@
             box-shadow: 0 8px 25px rgba(240, 179, 206, 0.6);
         }
 
-        /* LCV Butonu için nabız efekti */
-        .action-buttons .primary-btn {
-            animation: softPulse 3s infinite;
-            animation-iteration-count: 3;
+        /* LCV BUTONU (KART STİLİ VE GLOW) */
+        .lcv-btn {
+            background: #FAFAFA;
+            border: 1px solid #F0B3CE;
+            border-radius: 15px;
+            padding: 16px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: #B81165;
+            font-weight: 600;
+            box-shadow: 0 0 15px rgba(240, 179, 206, 0.7); /* Hafif glow efekti */
+            animation: softPulse 2.5s infinite; /* Kalp atışı animasyonu */
         }
 
-        .action-buttons .primary-btn:hover {
+        .lcv-btn:hover {
+            transform: translateY(-5px);
+            background: #FFF0F6;
+            box-shadow: 0 0 25px rgba(207, 75, 134, 0.5); /* Hover glow */
             animation: none; /* Üzerine gelince animasyonu durdur */
         }
 
         .rsvp-note {
-            position: relative;
-            z-index: 20;
             display: block;
             padding: 15px 0;
-            pointer-events: auto;
         }
 
         .secondary-btn {
@@ -398,7 +413,7 @@
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
         
         .modal-content {
-            background: #fff; border-radius: 20px; padding: 30px 20px 40px 20px;
+            background: #fff; border-radius: 20px; padding: 50px 20px 40px 20px;
             width: 90%; max-width: 450px; max-height: 85vh; overflow-y: auto;
             position: relative; transform: translateY(30px); transition: transform 0.3s ease;
             box-shadow: 0 15px 50px rgba(184, 17, 101, 0.15);
@@ -431,17 +446,17 @@
 
         /* ALBÜM YÖNLENDİRMESİ */
         .memory-card {
-            background-color: #FFF0F6;
-            border-radius: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, #FFF0F6 100%);
+            border-radius: 16px;
             padding: 25px 20px;
             margin-top: 20px;
-            border: 1px solid #F0B3CE;
-            box-shadow: 0 4px 15px rgba(184, 17, 101, 0.03);
+            border: 1px solid rgba(240, 179, 206, 0.8);
+            box-shadow: 0 10px 25px rgba(184, 17, 101, 0.08), inset 0 2px 0px rgba(255, 255, 255, 1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .memory-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(184, 17, 101, 0.08);
+            box-shadow: 0 15px 35px rgba(184, 17, 101, 0.12), inset 0 2px 0px rgba(255, 255, 255, 1);
         }
 
         /* EL ÇİZİMİ KALP ANİMASYONU */
@@ -521,11 +536,12 @@
             .detail-item h3 { font-size: 1.2rem; }
             .detail-item p { font-size: 0.85rem; }
             .primary-btn, .secondary-btn { padding: 12px 20px; font-size: 0.85rem; }
+            .lcv-btn { font-size: 1.2rem; padding: 14px 20px; }
             .floral-corner { width: 140px; height: 140px; }
             .floral-top-left { top: -15px; left: -10px; }
             .floral-bottom-right { bottom: -15px; right: -10px; }
-            .countdown-number { font-size: 1.6rem; }
-            .modal-content { padding: 25px 15px 30px 15px; }
+            .countdown-number { font-size: 2.2rem; }
+            .modal-content { padding: 50px 15px 30px 15px; }
             .music-btn { bottom: 35px; right: 15px; width: 40px; height: 40px; }
         }
     </style>
@@ -574,16 +590,18 @@
             </div>
         </div>
 
+        <div class="elegant-divider"></div>
+
         <div class="action-buttons">
             <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-                <!-- LCV Modal Butonu -->
-                <button onclick="openModal('lcvModal')" class="primary-btn" aria-label="LCV (RSVP)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"></path><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path><path d="m16 19 2 2 4-4"></path></svg>
-                    LCV (RSVP)
-                </button>
-                <span class="rsvp-note" style="font-size: 0.85rem; color: #6B7280; margin-top: 25px; text-align: center; font-style: italic;">
+                <span class="rsvp-note" style="font-size: 0.85rem; color: #6B7280; margin-bottom: 10px; text-align: center; font-style: italic;">
                     Katılım durumunuzu LCV (RSVP) ile bildirmeniz bizi çok mutlu eder.
                 </span>
+                <!-- LCV Modal Butonu -->
+                <button onclick="openModal('lcvModal')" class="lcv-btn" aria-label="LCV (RSVP)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8"></path><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path><path d="m16 19 2 2 4-4"></path></svg>
+                    LCV (RSVP)
+                </button>
             </div>
         </div>
 
@@ -909,11 +927,9 @@
                 }).catch(e => console.log("Otomatik oynatma engellendi."));
             }
             document.removeEventListener('click', startMusic);
-            document.removeEventListener('touchstart', startMusic);
         };
         
         document.addEventListener('click', startMusic);
-        document.addEventListener('touchstart', startMusic, { passive: true }); // Kaydırmayı engellememesi için passive: true eklendi
 
         // Butona tıklandığında oynat/duraklat
         musicToggle.addEventListener('click', (e) => {
