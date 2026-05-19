@@ -16,6 +16,9 @@
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     
+    <!-- GÖRSEL OPTİMİZASYONU: Çiçekleri önceden yükleyerek gecikmeyi önleme -->
+    <link rel="preload" href="assets/floral.png" as="image">
+
     <!-- FONTLAR: Cormorant Garamond (Başlık), Montserrat (Metin), Great Vibes (İmza/İsimler) -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
@@ -55,14 +58,8 @@
         .container {
             width: 100%;
             max-width: 600px; /* Davetiye için biraz daha geniş */
-            background-color: rgba(255, 255, 255, 0.95);
-            background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.98)), url('assets/bg3.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: transparent;
             padding: 50px 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(184, 17, 101, 0.08); 
             position: relative; 
             margin: auto;
             z-index: 10;
@@ -292,14 +289,15 @@
             color: #B81165;
             font-weight: 600;
             text-decoration: none;
-            box-shadow: 0 0 15px rgba(240, 179, 206, 0.7); /* Hafif glow efekti */
+            box-shadow: 0 6px 20px rgba(240, 179, 206, 0.45); /* Sabit glow efekti */
             animation: softPulse 2.5s infinite; /* Kalp atışı animasyonu */
+            will-change: transform; /* Performans / GPU Hızlandırma */
         }
 
         .lcv-btn:hover {
             transform: translateY(-5px);
             background: #FFF0F6;
-            box-shadow: 0 0 25px rgba(207, 75, 134, 0.5); /* Hover glow */
+            box-shadow: 0 8px 30px rgba(240, 179, 206, 0.7); /* Hover glow */
             animation: none; /* Üzerine gelince animasyonu durdur */
         }
 
@@ -446,10 +444,10 @@
             to { transform: scaleX(0); }
         }
         
-        /* Kalp atışı / Nabız animasyonu */
+        /* Kalp atışı / Nabız animasyonu - Gölge kaldırıldı, sadece transform ile akıcı hale getirildi */
         @keyframes softPulse {
-            0%, 100% { box-shadow: 0 6px 20px rgba(240, 179, 206, 0.45); transform: scale(1); }
-            50% { box-shadow: 0 8px 30px rgba(240, 179, 206, 0.8), 0 0 15px rgba(240, 179, 206, 0.4); transform: scale(1.02); }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
         }
 
         /* Toast Renk Temaları */
@@ -557,6 +555,7 @@
             background-color: #F0B3CE; 
             border-radius: 50%;
             animation: floatParticle linear infinite;
+            will-change: transform, opacity; /* Tarayıcı boyama (paint) kasmasını engeller */
         }
         @keyframes floatParticle {
             0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
@@ -575,17 +574,20 @@
             position: absolute;
             z-index: 2;
             pointer-events: none;
+            will-change: transform;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
     .floral-top-right {
             top: -20px;
         right: -40px;
-        transform: scaleX(-1);
+            transform: scaleX(-1) translateZ(0); /* GPU Hızlandırma */
         }
     .floral-bottom-left {
             bottom: -20px;
         left: -40px;
-        transform: scaleY(-1);
+            transform: scaleY(-1) translateZ(0); /* GPU Hızlandırma */
         }
 
         @media (max-width: 600px) {
@@ -762,7 +764,7 @@
             <form id="lcvForm" onsubmit="handleLCVSubmit(event)">
                 <div class="form-group">
                     <label for="lcvName">Adınız Soyadınız</label>
-                    <input type="text" id="lcvName" name="isim" class="form-input" placeholder="Hayko Cepkin --> Ha*** Ce**** şeklinde gizlenir" required>
+                    <input type="text" id="lcvName" name="isim" class="form-input" placeholder="Hayko Cepkin, Yalkın Ailesi" required>
                 </div>
                 <div class="form-group">
                     <label>Katılım Durumunuz</label>
