@@ -403,26 +403,22 @@
         .music-btn.playing .music-icon { animation: spinMusic 3s linear infinite; }
         @keyframes spinMusic { 100% { transform: rotate(360deg); } }
 
-        /* PAYLAŞ BUTONU */
-        .share-btn {
-            position: fixed;
-            bottom: 105px; /* Müzik butonunun hemen üstünde */
-            right: 25px;
+        /* SABİT AKSİYON BUTONU (İkon) */
+        .action-circle-btn {
             width: 45px;
             height: 45px;
-            background-color: #FFF0F6;
-            border: 1px solid #F0B3CE;
+            background-color: transparent;
+            border: none;
             color: #B81165;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(184, 17, 101, 0.15);
+            box-shadow: none;
             transition: all 0.3s ease;
         }
-        .share-btn:hover { background-color: #B81165; color: #fff; transform: scale(1.05); }
+        .action-circle-btn:hover { transform: scale(1.15); opacity: 0.8; }
 
         /* TOAST MESAJI (BİLDİRİM) */
         .toast {
@@ -615,7 +611,6 @@
             .countdown-number { font-size: 2.2rem; }
             .modal-content { padding: 50px 15px 30px 15px; }
             .music-btn { bottom: 35px; right: 15px; width: 40px; height: 40px; }
-            .share-btn { bottom: 85px; right: 15px; width: 40px; height: 40px; }
         }
     </style>
 </head>
@@ -689,6 +684,13 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7.5a4.5 4.5 0 1 1 4.5 4.5M12 7.5A4.5 4.5 0 1 0 7.5 12M12 7.5V12m0 0a4.5 4.5 0 1 0 4.5 4.5M12 12a4.5 4.5 0 1 1-4.5 4.5"></path></svg>
                     Anı Albümüne Git
                 </a>
+            </div>
+            
+            <!-- YENİ SABİT PAYLAŞ BUTONU (Adblocker takılmaması için gizli isimlendirme) -->
+            <div style="display: flex; justify-content: center; margin-top: 25px;">
+                <button id="action-circle-btn" class="action-circle-btn" aria-label="Davetiyeyi İlet" title="Davetiyeyi İlet">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                </button>
             </div>
         </div>
 
@@ -824,11 +826,6 @@
     
     <button id="music-toggle" class="music-btn" aria-label="Müziği Aç/Kapat">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="music-icon"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
-    </button>
-
-    <!-- PAYLAŞ BUTONU -->
-    <button id="share-btn" class="share-btn" aria-label="Siteyi Paylaş">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
     </button>
 
     <script>
@@ -1024,8 +1021,8 @@
             isMusicPlaying = !isMusicPlaying;
         });
 
-    // PAYLAŞ BUTONU MANTIĞI
-    const shareBtn = document.getElementById('action-float-btn');
+    // PAYLAŞIM BUTONU MANTIĞI
+    const shareBtn = document.getElementById('action-circle-btn');
     shareBtn.addEventListener('click', async () => {
         const shareData = {
             title: 'Seher & Çağdaş - Evleniyoruz!',
